@@ -1,0 +1,15 @@
+FROM ubuntu:latest
+
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    g++ \
+    make \
+    git
+
+WORKDIR /app
+
+COPY . /app
+
+RUN g++ final.cpp -o netflix_cli
+
+CMD ["./netflix_cli"]
